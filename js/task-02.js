@@ -13,14 +13,30 @@ const ingredients = [
 // 3. Добавит элементу класс item.
 // 4. После чего вставит все <li> за одну операцию в список ul#ingredients.
 
-const list = document.querySelector("#ingredients");
+const listRowPicker = document.querySelector("#ingredients");
 
-ingredients.forEach(function (el) {
+const elements = ingredients.map(ingredient => {
   const ingredientEl = document.createElement("li");
+  ingredientEl.textContent = ingredient;
   ingredientEl.classList.add("item");
-  ingredientEl.textContent = el;
 
-  list.appendChild(ingredientEl)
-})
+  return ingredientEl;
+});
+console.log(elements)
+listRowPicker.append(...elements);
 
-console.log(list);
+
+
+
+
+
+
+// ingredients.forEach(function (el) {
+//   const ingredientEl = document.createElement("li");
+//   ingredientEl.classList.add("item");
+//   ingredientEl.textContent = el;
+
+//   list.appendChild(ingredientEl)
+// })
+
+
