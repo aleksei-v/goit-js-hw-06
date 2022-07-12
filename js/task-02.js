@@ -25,18 +25,3 @@ const elements = ingredients.map(ingredient => {
 console.log(elements)
 listRowPicker.append(...elements);
 
-
-
-
-
-
-
-// ingredients.forEach(function (el) {
-//   const ingredientEl = document.createElement("li");
-//   ingredientEl.classList.add("item");
-//   ingredientEl.textContent = el;
-
-//   list.appendChild(ingredientEl)
-// })
-
-
