@@ -1,8 +1,3 @@
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-
-
 // Напиши скрипт создания и очистки коллекции элементов.
 //  Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция.
 //  При нажатии на кнопку Очистить, коллекция элементов очищается.
@@ -19,22 +14,28 @@ function getRandomHexColor() {
 // Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
 
 const isWorkWithBoxes = document.querySelector("#boxes");
-
-
+const amountEl = document.querySelector("input");
+console.log(amountEl)
 const buttonCreate = document.querySelector('#controls button[data-create]');
 const buttonRemove = document.querySelector('#controls button[data-destroy]');
 
 
 const isCreateBoxes = amount => {
-  const amountEl = document.querySelector("input");
-  amount = amountEl.textContent
-  console.log(amount)
+  for (let i = 1; i <= amount; i += 1) {
+    const divEl = document.createElement("div");
+    divEl.textContent = `${i} - element`;
+    divEl.style.width = `${30 + i * 10}px`;
+    divEl.style.height = `${30 + i * 10}px`;
+    divEl.style.backgroundColor = getRandomHexColor();
+    isWorkWithBoxes.appendChild(divEl);
+  }
 }
-// console.log(isCreateBoxes(3))
-buttonCreate.addEventListener("click", isCreateBoxes)
+const isRemoveBoxes = () => {
+  isWorkWithBoxes.innerHTML = "";
+}
+buttonCreate.addEventListener("click", () => isCreateBoxes(amountEl.value));
+buttonRemove.addEventListener("click", isRemoveBoxes);
 
-// function isCreateBoxes(amount) {
-//     const box = document.createElement("div") * amount;
-//   console.log("Is work?");
-//   isWorkWithBoxes.append(box);
-// }
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
