@@ -7,7 +7,7 @@
 const textInput = document.querySelector("#validation-input");
 
 const validation = () => {
-    if ( textInput.value.length >= 6) {
+    if ( textInput.value.length === 6) {
         textInput.classList.add("valid");
         textInput.classList.remove("invalid");
     } else {
